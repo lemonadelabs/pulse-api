@@ -60,6 +60,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    active_model_serializers (0.10.0.rc4)
+      actionpack (>= 4.0)
+      activemodel (>= 4.0)
+      railties (>= 4.0)
     arel (7.0.0)
     builder (3.2.2)
     byebug (8.2.2)
@@ -84,6 +88,7 @@ GEM
     puma (2.16.0)
     rack (2.0.0.alpha)
       json
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-deprecated_sanitizer (1.0.3)
@@ -115,9 +120,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.10.0.rc3)
   byebug
   pg (~> 0.18)
   puma
+  rack-cors
   rails!
   spring
   tzinfo-data
