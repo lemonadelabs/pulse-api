@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  client: MyText
+  timeframe: 1
+  timeFormat: MyString
+  totalStakeholders: 1
+  projectOverview: MyText
+
+two:
+  name: MyString
+  client: MyText
+  timeframe: 1
+  timeFormat: MyString
+  totalStakeholders: 1
+  projectOverview: MyText
