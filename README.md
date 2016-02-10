@@ -2,7 +2,16 @@ Made using this tutorial: http://emberigniter.com/modern-bridge-ember-and-rails-
 
 with this command: "bundle exec railties/exe/rails new ../pulse-api-2 --api --database=postgresql --edge -B"
 
-Built using rails 5 beta 2. The gemfile is referencing the rails repo which is stored locally on my machine
+current rails version
+  5.0.0.beta2
+
+current ruby verions
+  2.3.0
+
+JsonAPI-Resource
+  using 'rails5' branch as this fixes some problems that occurred with rails5beta2. Use master branch after this or equivilent merge https://github.com/cerebris/jsonapi-resources/pull/596
+
+
 
 I used these commands to generate scaffolds:
   bin/rails generate scaffold project name:string client:text timeframe:integer timeFormat:string totalStakeholders:integer projectOverview:text
