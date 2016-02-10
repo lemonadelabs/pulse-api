@@ -20,7 +20,7 @@ gem 'puma'
 # Use ActiveModelSerializers to serialize JSON responses
 # gem 'active_model_serializers', '~> 0.10.0.rc3'
 
-gem 'jsonapi-resources'
+gem 'jsonapi-resources', ">= 0.7.1.beta"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
