@@ -18,7 +18,9 @@ gem 'puma'
 # gem 'capistrano-rails', group: :development
 
 # Use ActiveModelSerializers to serialize JSON responses
-gem 'active_model_serializers', '~> 0.10.0.rc3'
+# gem 'active_model_serializers', '~> 0.10.0.rc3'
+
+gem 'jsonapi-resources'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
