@@ -29,8 +29,8 @@ project
 
 stakeholders
   get one stakeholder => 'stakeholder/:id' works!
-  get all stakeholders for project => '/projects/:project_id/stakeholders'
+  get all stakeholders for project => '/projects/:project_id/stakeholders' works!
 
 stakeholder_snapshots
-  get all stakeholder weekly snapshots for project => 'projects/:project_id/stakeholder_snapshots'
+  get all stakeholder_snapshots for project => 'projects/:project_id/stakeholder_snapshots'
     optional params[:week]

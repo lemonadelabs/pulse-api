@@ -1,6 +1,6 @@
 class StakeholdersController < JSONAPI::ResourceController
 
-  def forProject
+  def for_project
     project = Project.find(params[:project_id])
     stakeholders = project.stakeholders.uniq
 
