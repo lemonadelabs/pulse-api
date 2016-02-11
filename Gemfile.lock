@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/cerebris/jsonapi-resources.git
+  revision: 831e87503b4faeb15322d83cf82dbb264de6378f
+  branch: rails5
+  specs:
+    jsonapi-resources (0.7.0)
+      rails (>= 4.0)
+
 PATH
   remote: ../../rails
   specs:
@@ -69,8 +77,6 @@ GEM
       activesupport (>= 4.1.0)
     i18n (0.7.0)
     json (1.8.3)
-    jsonapi-resources (0.7.1.beta1)
-      rails (>= 4.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -119,7 +125,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  jsonapi-resources (>= 0.7.1.beta)
+  jsonapi-resources!
   pg (~> 0.18)
   puma
   rack-cors

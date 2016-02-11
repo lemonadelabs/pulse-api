@@ -19,3 +19,18 @@ I used these commands to generate scaffolds:
   bin/rails generate scaffold stakeholder name:string image:text organisation:string role:string tags:array notes:array
 
   bin/rails generate scaffold stakeholder_snapshot references:project references:stakeholder week:integer power:float support:float vital:float
+
+
+routes needed:
+
+project
+  get one project => '/projects/:project_id' works!
+  get all projects => '/projects' works!
+
+stakeholders
+  get one stakeholder => 'stakeholder/:id' works!
+  get all stakeholders for project => '/projects/:project_id/stakeholders'
+
+stakeholder_snapshots
+  get all stakeholder weekly snapshots for project => 'projects/:project_id/stakeholder_snapshots'
+    optional params[:week]

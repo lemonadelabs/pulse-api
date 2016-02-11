@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   jsonapi_resources :stakeholders
   jsonapi_resources :stakeholder_snapshots
 
-
+  get 'project/:project_id/stakeholders' => 'stakeholders#forProject'
   # resources :stakeholder_snapshots, :path => '/stakeholder-snapshots'
   # resources :stakeholders
   # resources :projects
