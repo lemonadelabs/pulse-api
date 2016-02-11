@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-# gem 'rails', github: "rails/rails"
-gem 'rails', path: "../../rails"
+gem 'rails', '5.0.0.beta2'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

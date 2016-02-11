@@ -7,7 +7,7 @@ http://jsonapi.org/
 https://github.com/cerebris/jsonapi-resources
 
 ##current rails version
-5.0.0.beta2 => referencing a local repo in the gemfile, not rubygems
+5.0.0.beta2
 
 ##current ruby verions
 2.3.0
