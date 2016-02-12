@@ -850,12 +850,12 @@ stakeholders = [
 ]
 
 project = Project.create(
-  name: 'my project',
+  title: 'my project',
   client: 'Ministry of Health',
   timeframe: 4,
-  timeFormat: 'w',
-  totalStakeholders: 30,
-  projectOverview: 'This is a blurb about the project'
+  time_format: 'w',
+  total_stakeholders: 30,
+  description: 'This is a blurb about the project'
 )
 
 stakeholders.each do | stakeholder |

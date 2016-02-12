@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20160209225215) do
   enable_extension "plpgsql"
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.text     "client"
     t.integer  "timeframe"
-    t.string   "timeFormat"
-    t.integer  "totalStakeholders"
-    t.text     "projectOverview"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "time_format"
+    t.integer  "total_stakeholders"
+    t.text     "description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "stakeholder_snapshots", force: :cascade do |t|
@@ -36,11 +36,10 @@ ActiveRecord::Schema.define(version: 20160209225215) do
     t.float    "vital"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["project_id"], name: "index_stakeholder_snapshots_on_project_id", using: :btree
+    t.index ["stakeholder_id"], name: "index_stakeholder_snapshots_on_stakeholder_id", using: :btree
+    t.index ["week"], name: "index_stakeholder_snapshots_on_week", using: :btree
   end
-
-  add_index "stakeholder_snapshots", ["project_id"], name: "index_stakeholder_snapshots_on_project_id", using: :btree
-  add_index "stakeholder_snapshots", ["stakeholder_id"], name: "index_stakeholder_snapshots_on_stakeholder_id", using: :btree
-  add_index "stakeholder_snapshots", ["week"], name: "index_stakeholder_snapshots_on_week", using: :btree
 
   create_table "stakeholders", force: :cascade do |t|
     t.string   "name"
