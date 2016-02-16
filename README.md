@@ -31,12 +31,18 @@ eval "$(rbenv init -)"
 
 ##### install ruby 2.3.0
 
-`rbenv install 2.3.0-dev`
+`rbenv install 2.3.0`
+
+if it says that it can't find version 2.3.0 you might need to update the brew packages and ruby-build
+
+```
+brew update && brew upgrade ruby-build
+```
 
 ##### setup rbenv to use ruby 2.3.0
 in the pulse-api project directory run:
 
-`rbenv local 2.3.0-dev`
+`rbenv local 2.3.0`
 
 ##### install bundler
 
@@ -70,4 +76,4 @@ rails db:seed
 
 #### run the server
 
-`rails server`
+`rails s`
