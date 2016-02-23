@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209225215) do
+ActiveRecord::Schema.define(version: 20160222224506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20160209225215) do
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "stakeholder_snapshot_id"
+    t.integer  "stakeholder_id"
+    t.float    "strength"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["stakeholder_id"], name: "index_relationships_on_stakeholder_id", using: :btree
+    t.index ["stakeholder_snapshot_id"], name: "index_relationships_on_stakeholder_snapshot_id", using: :btree
   end
 
   create_table "stakeholder_snapshots", force: :cascade do |t|
