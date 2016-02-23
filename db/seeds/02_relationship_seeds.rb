@@ -14,16 +14,21 @@ relationship_data =[
 ]
 
 relationship_data.each do | datum |
-  snapshot = StakeholderSnapshot.find_by(
-    stakeholder_id: datum[:sh1_id] + 1, #as our mock data starts with stakeholder_id: 0, but our database starts with 1
-    week: datum[:week],
-    project_id: project.id
-  )
+  if datum[:strength]
+    snapshot = StakeholderSnapshot.find_by(
+      stakeholder_id: datum[:sh1_id] + 1, #as our mock data starts with stakeholder_id: 0, but our database starts with 1
+      week: datum[:week],
+      project_id: project.id
+    )
 
-  relationship = Relationship.create(
-    stakeholder_snapshot_id: snapshot.id,
-    stakeholder_id: datum[:sh2_id] + 1
-  )
-  p "created relationship #{relationship.id}"
+    relationship = Relationship.create(
+      stakeholder_snapshot_id: snapshot.id,
+      stakeholder_id: datum[:sh2_id] + 1,
+      strength: datum[:strength]
+    )
+    p "created relationship #{relationship.id}"
+  else
+    p '#{relationship.id} is not a complete relationship object, no record has been created'
+  end
 end
 
