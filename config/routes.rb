@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get 'projects/:project_id/stakeholders' => 'stakeholders#for_project'
 
+  get 'projects/:project_id/relationships' => 'relationships#for_project'
+
 end
