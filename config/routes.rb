@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'projects/:project_id/connections' => 'connections#for_project'
+
   jsonapi_resources :projects
   jsonapi_resources :stakeholders
   jsonapi_resources :stakeholder_snapshots
-  jsonapi_resources :connections
+  # jsonapi_resources :connections
 
   get 'projects/:project_id/stakeholders' => 'stakeholders#for_project'
 
