@@ -1,5 +1,5 @@
 p 'Relationship.destroy_all'
-Relationship.destroy_all
+Connection.destroy_all
 
 project = Project.first
 
@@ -15,20 +15,28 @@ relationship_data =[
 
 relationship_data.each do | datum |
   if datum[:strength]
-    snapshot = StakeholderSnapshot.find_by(
-      stakeholder_id: datum[:sh1_id] + 1, #as our mock data starts with stakeholder_id: 0, but our database starts with 1
-      week: datum[:week],
-      project_id: project.id
-    )
+    stakeholder_id = datum[:sh1_id]
+    acquaintance_id = datum[:sh2_id]
+    week = datum[:week]
+    strength = datum[:strength]
 
-    relationship = Relationship.create(
-      stakeholder_snapshot_id: snapshot.id,
-      stakeholder_id: datum[:sh2_id] + 1,
-      strength: datum[:strength]
+
+    connection = Connection.create(
+      stakeholder: Stakeholder.find(stakeholder_id + 1),
+      acquaintance: Stakeholder.find(acquaintance_id + 1),
+      strength: strength,
+      project_id: project.id,
+      week: week
+
+      # stakeholder_id: 10,
+      # acquaintance_id: 10,
+      # strength: 0.3,
+      # project_id: 1,
     )
-    p "created relationship #{relationship.id}"
+    p connection.save!
+    # p "created connection #{connection.id}"
   else
-    p '#{relationship.id} is not a complete relationship object, no record has been created'
+    p 'not a complete relationship object, no record has been created'
   end
 end
 
