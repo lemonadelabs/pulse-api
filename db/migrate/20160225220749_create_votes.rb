@@ -3,7 +3,7 @@ class CreateVotes < ActiveRecord::Migration[5.0]
     create_table :votes do |t|
       t.belongs_to :stakeholder_snapshot, index: true
       t.float :power
-      t.foat :support
+      t.float :support
       t.float :vital
 
       t.timestamps
