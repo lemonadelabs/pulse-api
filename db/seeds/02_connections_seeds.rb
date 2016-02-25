@@ -27,14 +27,8 @@ relationship_data.each do | datum |
       strength: strength,
       project_id: project.id,
       week: week
-
-      # stakeholder_id: 10,
-      # acquaintance_id: 10,
-      # strength: 0.3,
-      # project_id: 1,
     )
-    p connection.save!
-    # p "created connection #{connection.id}"
+    p "created connection #{connection.id}"
   else
     p 'not a complete relationship object, no record has been created'
   end
