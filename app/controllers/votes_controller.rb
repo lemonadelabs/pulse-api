@@ -1,2 +1,2 @@
-class VotesController < ApplicationController
+class VotesController < JSONAPI::ResourceController
 end
