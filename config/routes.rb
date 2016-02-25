@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :votes
   get 'projects/:project_id/connections' => 'connections#for_project'
 
   jsonapi_resources :projects

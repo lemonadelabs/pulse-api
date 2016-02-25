@@ -4,6 +4,6 @@ class ConnectionsController < ActionController::API
     project = Project.find(params[:project_id])
     @connections = project.connections
     render json: @connections
-  end
+  endjson
 
 end
