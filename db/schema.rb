@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209225215) do
+ActiveRecord::Schema.define(version: 20160225220749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "connections", force: :cascade do |t|
+    t.integer  "week"
+    t.float    "strength"
+    t.integer  "project_id"
+    t.integer  "stakeholder_id"
+    t.integer  "acquaintance_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["acquaintance_id"], name: "index_connections_on_acquaintance_id", using: :btree
+    t.index ["project_id"], name: "index_connections_on_project_id", using: :btree
+    t.index ["stakeholder_id"], name: "index_connections_on_stakeholder_id", using: :btree
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -50,6 +63,16 @@ ActiveRecord::Schema.define(version: 20160209225215) do
     t.text     "notes",        default: [],              array: true
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "stakeholder_snapshot_id"
+    t.float    "power"
+    t.float    "support"
+    t.float    "vital"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["stakeholder_snapshot_id"], name: "index_votes_on_stakeholder_snapshot_id", using: :btree
   end
 
 end

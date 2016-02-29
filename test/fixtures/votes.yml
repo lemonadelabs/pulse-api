@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stakeholder_snapshot: 
+  power: 1.5
+  support: 
+  vital: 1.5
+
+two:
+  stakeholder_snapshot: 
+  power: 1.5
+  support: 
+  vital: 1.5

@@ -3,4 +3,5 @@ class StakeholderResource < JSONAPI::Resource
 
   has_many :stakeholder_snapshots
   has_many :projects
+  has_many :connections
 end
