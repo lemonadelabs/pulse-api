@@ -1,4 +1,4 @@
-p 'Relationship.destroy_all'
+p 'Connection.destroy_all'
 Connection.destroy_all
 
 project = Project.first
@@ -13,24 +13,73 @@ relationship_data =[
   { sh1_id: 26, sh2_id: 25, week: 1, strength: -0.9},{ sh1_id: 25, sh2_id: 26, week: 1, strength: -0.9},{ sh1_id: 26, sh2_id: 25, week: 2, strength: -0.8},{ sh1_id: 25, sh2_id: 26, week: 2, strength: -0.8},{ sh1_id: 26, sh2_id: 25, week: 3, strength: -0.5},{ sh1_id: 25, sh2_id: 26, week: 3, strength: -0.5},{ sh1_id: 26, sh2_id: 25, week: 4, strength: -0.6},{ sh1_id: 25, sh2_id: 26, week: 4, strength: -0.6},{ sh1_id: 27, sh2_id: 25, week: 1, strength: 0.8},{ sh1_id: 25, sh2_id: 27, week: 1, strength: 0.8},{ sh1_id: 27, sh2_id: 25, week: 2, strength: 0.8},{ sh1_id: 25, sh2_id: 27, week: 2, strength: 0.8},{ sh1_id: 27, sh2_id: 25, week: 3, strength: 0.8},{ sh1_id: 25, sh2_id: 27, week: 3, strength: 0.8},{ sh1_id: 27, sh2_id: 25, week: 4, strength: 0.8},{ sh1_id: 25, sh2_id: 27, week: 4, strength: 0.8},{ sh1_id: 27, sh2_id: 26, week: 1, strength: -0.8},{ sh1_id: 26, sh2_id: 27, week: 1, strength: -0.8},{ sh1_id: 27, sh2_id: 26, week: 2, strength: -0.8},{ sh1_id: 26, sh2_id: 27, week: 2, strength: -0.8},{ sh1_id: 27, sh2_id: 26, week: 3, strength: -0.6},{ sh1_id: 26, sh2_id: 27, week: 3, strength: -0.6},{ sh1_id: 27, sh2_id: 26, week: 4, strength: -0.8},{ sh1_id: 26, sh2_id: 27, week: 4, strength: -0.8}
 ]
 
-relationship_data.each do | datum |
-  if datum[:strength]
-    stakeholder_id = datum[:sh1_id]
-    acquaintance_id = datum[:sh2_id]
-    week = datum[:week]
-    strength = datum[:strength]
+# relationship_data.each do | datum |
+#   if datum[:strength]
+#     stakeholder_id = datum[:sh1_id]
+#     acquaintance_id = datum[:sh2_id]
+#     week = datum[:week]
+#     strength = datum[:strength]
 
 
-    connection = Connection.create(
-      stakeholder: Stakeholder.find(stakeholder_id + 1),
-      acquaintance: Stakeholder.find(acquaintance_id + 1),
-      strength: strength,
-      project_id: project.id,
-      week: week
-    )
-    p "created connection #{connection.id}"
-  else
-    p 'not a complete relationship object, no record has been created'
+#     connection = Connection.create(
+#       stakeholder: Stakeholder.find(stakeholder_id + 1),
+#       acquaintance: Stakeholder.find(acquaintance_id + 1),
+#       strength: strength,
+#       project_id: project.id,
+#       week: week
+#     )
+#     p "created connection #{connection.id}"
+#   else
+#     p 'not a complete relationship object, no record has been created'
+#   end
+# end
+
+
+
+timeframe = project.timeframe
+stakeholders = project.stakeholders.uniq
+half_of_stakeholders = stakeholders[0..(stakeholders.length/2)]
+
+half_of_stakeholders.each do | stakeholder |
+  eligible_relations = stakeholders - [stakeholder]
+  amount_relations = rand(20) + 1
+
+  amount_relations.times do
+
+    starting_strength = rand * (2) - 1
+    change = rand - 0.5
+
+    acquaintance = eligible_relations.delete_at( rand( eligible_relations.length ) )
+    timeframe.times do | week |
+
+      strength = starting_strength + change * week
+      if (strength < -1) then strength = -1 end
+      if (strength > 1) then strength = 1 end
+
+      connection = Connection.create(
+        stakeholder: stakeholder,
+        acquaintance: acquaintance,
+        strength: strength,
+        project_id: project.id,
+        week: week + 1
+      )
+      p "created connection #{connection.id}"
+
+      connection = Connection.create( # make the inverse connection
+        stakeholder: acquaintance,
+        acquaintance: stakeholder,
+        strength: strength,
+        project_id: project.id,
+        week: week + 1
+      )
+      p "created connection #{connection.id}"
+
+    end
   end
 end
+
+
+# there are 28 stakeholders
+# we want each stakeholder to have relationships to between 0 and 20 other stakeholders
+
 
