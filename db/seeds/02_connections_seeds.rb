@@ -1,3 +1,6 @@
+# there are 28 stakeholders
+# we want each stakeholder to have relationships to between 0 and 20 other stakeholders
+
 p 'Connection.destroy_all'
 Connection.destroy_all
 
@@ -9,7 +12,7 @@ half_of_stakeholders = stakeholders[0..(stakeholders.length/2)]
 
 half_of_stakeholders.each do | stakeholder |
   eligible_relations = stakeholders - [stakeholder]
-  amount_relations = rand(20) + 1
+  amount_relations = rand( stakeholders.length * ( 3 / 4 )) + 1 # the max amount of relationships is a stakeholder will have is 75% of all the total population
 
   amount_relations.times do
 
@@ -44,9 +47,5 @@ half_of_stakeholders.each do | stakeholder |
     end
   end
 end
-
-
-# there are 28 stakeholders
-# we want each stakeholder to have relationships to between 0 and 20 other stakeholders
 
 
