@@ -854,7 +854,7 @@ project = Project.create(
   client: 'Ministry of Health',
   timeframe: 4,
   time_format: 'w',
-  total_stakeholders: 30,
+  total_stakeholders: 28,
   description: 'This is a blurb about the project'
 )
 
