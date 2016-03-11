@@ -12,7 +12,7 @@ half_of_stakeholders = stakeholders[0..(stakeholders.length/2)]
 
 half_of_stakeholders.each do | stakeholder |
   eligible_relations = stakeholders - [stakeholder]
-  amount_relations = rand( stakeholders.length * ( 3 / 4 )) + 1 # the max amount of relationships is a stakeholder will have is 75% of all the total population
+  amount_relations = rand( stakeholders.length * ( 3 / 4 )).floor + 1 # the max amount of relationships is a stakeholder will have is 75% of all the total population
 
   amount_relations.times do
 
