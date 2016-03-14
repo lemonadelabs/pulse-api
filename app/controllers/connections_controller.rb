@@ -1,11 +1,9 @@
 class ConnectionsController < ActionController::API
-
   def for_project
     project = Project.find(params[:project_id])
     @connections = project.connections
     render json: @connections
   end
-
 
   def for_stakeholder
     project = Project.find(params[:project_id])
