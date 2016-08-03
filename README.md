@@ -2,9 +2,9 @@ Pulse Api Useful Information
 ----------------------------
 
 ## References:
-[Rails 5, ember 2 and jsonapi-resources tutorial](http://emberigniter.com/modern-bridge-ember-and-rails-5-with-json-api/)
-[JSONAPI specification](http://jsonapi.org/)
-[jsonapi-resources](https://github.com/cerebris/jsonapi-resources)
+[Rails 5, ember 2 and jsonapi-resources tutorial](http://emberigniter.com/modern-bridge-ember-and-rails-5-with-json-api/)  
+[JSONAPI specification](http://jsonapi.org/)  
+[jsonapi-resources](https://github.com/cerebris/jsonapi-resources)  
 
 ### current rails version
 5.0.0
