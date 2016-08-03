@@ -53,7 +53,7 @@ if this asks for a sudo password or you get permissions issues rbenv might not b
 
 in the pulse-api project directory run:
 
-`bundler install`
+`bundle`
 
 ##### install postgres
 `brew install postgres`
@@ -76,4 +76,4 @@ rails db:seed
 
 #### run the server
 
-`rails s`
+`bundle exec puma`
