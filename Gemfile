@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.0.0.beta3'
+gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma'
-gem 'jsonapi-resources', :git => "https://github.com/cerebris/jsonapi-resources.git",  :branch => 'rails5'
+
+# locked to this comit as there are breaking changes after it
+gem 'jsonapi-resources', :git => "https://github.com/cerebris/jsonapi-resources.git",  :ref => '831e87503b4faeb15322d83cf82dbb264de6378f'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
